@@ -1,6 +1,6 @@
 # Breathing Light
 
-An interactive front-end installation about emotion and time. The browser shows a single first-person view looking straight up at a circular skylight inside a quiet concrete dome. Eye state, clock rhythm, and clap peaks modulate light and sound.
+An interactive front-end installation about emotion and time. The browser shows a single first-person view looking straight up at a circular skylight inside a quiet concrete dome. Eye state, breathing light, minute-hand sound, and clap peaks modulate the space.
 
 ## Install
 
@@ -44,11 +44,12 @@ The image2.0 prompts are in `src/prompts/image2-prompts.json`.
 
 ## Interaction Logic
 
-- Eyes open: a one-second clock controls a restrained tick sound and synchronized light pulse.
-- Clap disturbance: valid claps temporarily override the clock. Faster claps create stronger center light and can push the scene into a whiteout breath.
+- Eyes open: light breathes slowly from darkness to strong natural white, then back to darkness.
+- Minute-hand sound: a restrained minute-hand movement sound plays only at the brightest point of each breathing cycle.
+- Clap disturbance: valid claps temporarily disturb the breathing rhythm. Faster claps create stronger center light and can push the scene into a whiteout breath.
 - Whiteout breath: peak light fills the frame softly, then fades back toward the dome.
-- Eyes closed meditation: sustained closure enters a quiet state, fades ticking and clap response, and crossfades seasonal sky inside only the circular skylight.
-- Reopen: the clock and dome light fade back in over roughly one to two seconds.
+- Eyes closed meditation: sustained closure enters a quiet state, fades sound and clap response, and crossfades seasonal sky inside only the circular skylight.
+- Reopen: the breathing light fades back in over roughly one to two seconds.
 
 ## Browser Limits
 
