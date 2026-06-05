@@ -1,0 +1,233 @@
+:root {
+  color-scheme: dark;
+  background: #010202;
+  font-family: system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #010202;
+}
+
+.installation {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  cursor: none;
+  background:
+    radial-gradient(circle at center, rgba(230, 241, 238, 0.012) 0 7.2vmin, transparent 7.6vmin),
+    radial-gradient(circle at center, #0d1011 0 16vmin, #050607 38vmin, #020303 70vmin, #000101 100%);
+  isolation: isolate;
+}
+
+.dome-image,
+.concrete-dome,
+.dome-shadow,
+.light-column,
+.light-wash,
+.whiteout,
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.dome-image {
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+}
+
+.dome-image-main {
+  background-image: var(--dome-image);
+  opacity: 1;
+}
+
+.dome-image-strong {
+  z-index: 8;
+  background-image: var(--dome-strong-image);
+  mix-blend-mode: screen;
+  opacity: var(--dome-strong-opacity);
+}
+
+.concrete-dome {
+  z-index: 2;
+  background:
+    radial-gradient(circle at center, transparent 0 11.7vmin, rgba(1, 2, 2, 0.94) 11.9vmin 12.6vmin, transparent 12.8vmin),
+    repeating-radial-gradient(circle at center, rgba(255, 255, 255, 0.018) 0 0.45vmin, rgba(0, 0, 0, 0.04) 0.55vmin 0.9vmin, transparent 1vmin 9.2vmin),
+    radial-gradient(circle at center, rgba(180, 190, 186, 0.035) 0 16vmin, rgba(92, 102, 101, 0.04) 22vmin, transparent 42vmin),
+    conic-gradient(from 0deg, rgba(255,255,255,0.016), rgba(0,0,0,0.1), rgba(255,255,255,0.012), rgba(0,0,0,0.09), rgba(255,255,255,0.016)),
+    radial-gradient(circle at center, #171b1c 0 18vmin, #0d1011 40vmin, #050606 72vmin, #010202 100%);
+}
+
+.concrete-dome::before {
+  content: "";
+  position: absolute;
+  inset: -20vmin;
+  background:
+    linear-gradient(0deg, transparent 49.85%, rgba(255, 255, 255, 0.028) 50%, transparent 50.15%),
+    linear-gradient(90deg, transparent 49.85%, rgba(255, 255, 255, 0.024) 50%, transparent 50.15%),
+    linear-gradient(45deg, transparent 49.92%, rgba(0, 0, 0, 0.055) 50%, transparent 50.08%),
+    linear-gradient(135deg, transparent 49.92%, rgba(0, 0, 0, 0.05) 50%, transparent 50.08%);
+  opacity: 0.62;
+  transform: rotate(0.2deg);
+}
+
+.concrete-dome::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 0 14vmin, rgba(245, 248, 242, var(--concrete-light-a)) 14vmin 30vmin, transparent 55vmin),
+    radial-gradient(circle at center, transparent 0 9vmin, rgba(255, 255, 255, var(--concrete-pulse-a)) 10vmin 22vmin, transparent 48vmin);
+  mix-blend-mode: screen;
+}
+
+.skylight {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  width: min(24vmin, 28vw);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, var(--skylight-core-a)) 0 18%, rgba(210, 232, 235, var(--skylight-mid-a)) 36%, rgba(74, 96, 105, var(--skylight-edge-a)) 70%, rgba(4, 7, 9, 0.88) 100%);
+  box-shadow:
+    0 0 calc(2vmin + var(--skylight-glow-size)) rgba(236, 245, 240, var(--skylight-shadow-a)),
+    inset 0 0 0.65vmin rgba(255, 255, 255, 0.4),
+    inset 0 0 3.8vmin rgba(0, 0, 0, 0.62);
+}
+
+.season {
+  position: absolute;
+  inset: -8%;
+  background-position: center;
+  background-size: cover;
+  opacity: var(--season-current-opacity);
+  transition: opacity 1400ms ease;
+  filter: saturate(0.9) brightness(1.18);
+}
+
+.season-next {
+  opacity: var(--season-next-opacity);
+}
+
+.season-spring {
+  background-image:
+    radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.78) 0 16%, transparent 32%),
+    linear-gradient(155deg, #dcefed 0%, #a9d3de 48%, #dde8d9 100%);
+}
+
+.season-summer {
+  background-image:
+    radial-gradient(circle at 64% 38%, rgba(255, 255, 255, 0.72) 0 18%, transparent 34%),
+    linear-gradient(160deg, #eaf8ff 0%, #7cc2e5 52%, #3f8fc8 100%);
+}
+
+.season-autumn {
+  background-image:
+    radial-gradient(circle at 52% 42%, rgba(255, 241, 205, 0.62) 0 18%, transparent 36%),
+    linear-gradient(155deg, #e9d7ad 0%, #b7c3c2 48%, #6c8792 100%);
+}
+
+.season-winter {
+  background-image:
+    radial-gradient(circle at 55% 32%, rgba(246, 249, 250, 0.52) 0 14%, transparent 34%),
+    linear-gradient(160deg, #d4e0e4 0%, #8ba2ae 48%, #485e68 100%);
+}
+
+.skylight-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255, var(--skylight-glow-a1)), rgba(230, 239, 236, var(--skylight-glow-a2)) 38%, rgba(92, 115, 123, 0.2) 72%, transparent);
+  opacity: var(--skylight-glow-opacity);
+  mix-blend-mode: screen;
+}
+
+.oculus-rim {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  width: min(25.2vmin, 29.4vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 0 0.38vmin rgba(6, 7, 8, 0.82),
+    0 0 0 0.88vmin rgba(58, 64, 65, 0.46),
+    0 0 0 1.08vmin rgba(0, 0, 0, 0.42),
+    0 1.4vmin 6vmin rgba(0, 0, 0, 0.58);
+}
+
+.dome-shadow {
+  z-index: 6;
+  background:
+    radial-gradient(circle at center, transparent 0 15vmin, rgba(0, 0, 0, 0.44) 18vmin, transparent 34vmin),
+    radial-gradient(circle at center, transparent 0 30vmin, rgba(0, 0, 0, 0.72) 78vmin, rgba(0, 0, 0, 0.94) 100%);
+}
+
+.light-column {
+  z-index: 7;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, var(--light-column-a1)) 0 5vmin, rgba(230, 242, 238, var(--light-column-a2)) 12vmin, transparent 38vmin),
+    radial-gradient(circle at center, rgba(218, 231, 225, var(--light-column-pulse-a)) 0 20vmin, transparent 72vmin);
+  filter: blur(var(--light-column-blur));
+  mix-blend-mode: screen;
+  opacity: var(--light-column-opacity);
+}
+
+.light-wash {
+  z-index: 8;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, var(--light-wash-a1)) 0 16vmin, rgba(230, 238, 236, var(--light-wash-a2)) 30vmin, transparent 84vmin);
+  mix-blend-mode: screen;
+}
+
+.whiteout {
+  z-index: 10;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, var(--whiteout-a1)) 0 24vmin, rgba(246, 249, 247, var(--whiteout-a2)) 58vmin, rgba(235, 242, 240, var(--whiteout-a3)) 100%),
+    var(--dome-whiteout-image);
+  background-position: center;
+  background-size: cover;
+  opacity: var(--whiteout);
+  mix-blend-mode: screen;
+  transition: opacity 180ms linear;
+}
+
+.grain {
+  z-index: 11;
+  opacity: 0.13;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0 0.08vmin, transparent 0.1vmin),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.1) 0 0.08vmin, transparent 0.1vmin);
+  background-size: 1.35vmin 1.35vmin, 1.9vmin 1.9vmin;
+  mix-blend-mode: overlay;
+}
+
+@media (max-width: 700px) {
+  .skylight {
+    width: 30vmin;
+  }
+
+  .oculus-rim {
+    width: 31.4vmin;
+  }
+}
